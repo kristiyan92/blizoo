@@ -75,10 +75,6 @@ public class CoveringFragment extends Fragment {
 
     }
 
-
-
-
-
     /**
      * Initialize and add google maps and set markers into maps if we have markers
      * at all.After setting marker with some params into maps create camera animation
