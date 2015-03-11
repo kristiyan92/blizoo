@@ -14,6 +14,10 @@ import static android.view.View.OnClickListener;
 
 public class ContactUsFragment extends Fragment implements OnClickListener {
 
+    /*
+     * THIS IS COMMENT FOR TESTING COMMIT
+     */
+
     //Layout Elements
     private Button mSendMessageButton;
     private EditText mYourName, mYourEmail, mYourMessage;
