@@ -23,7 +23,7 @@ public class ContactUsFragment extends Fragment implements OnClickListener {
                              Bundle savedInstanceState) {
 
         View view = inflater
-                .inflate(R.layout.fragment_contact_us, container, false);
+                .inflate(R.layout.contact_us_fragment, container, false);
 
         initializeLayoutElements(view);
 
