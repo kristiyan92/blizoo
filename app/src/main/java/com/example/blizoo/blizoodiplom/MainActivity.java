@@ -432,13 +432,13 @@ public class MainActivity extends DefaultActivity {
         // replace fragments dependence which item is clicked
         switch (mDrawerList.getCheckedItemPosition()) {
 
-      /* case 0:
+            case 0:
                 backStack.add(0);
-                ContactUsFragment contactus = new ContactUsFragment();
+                CoveringFragment covering = new CoveringFragment();
                 mFragmentTransaction
-                        .replace(R.id.content_frame, contactus, "ProgramFragment")
-                        .addToBackStack("ProgramFragment").commit();
-                break;*/
+                        .replace(R.id.content_frame, covering, "CoveringFragment")
+                        .addToBackStack("CoveringFragment").commit();
+                break;
          /*   case 1:
                 backStack.add(1);
                 LecturersFragment lecturersFragment = new LecturersFragment();
@@ -488,7 +488,6 @@ public class MainActivity extends DefaultActivity {
         // close side menu
         mDrawerLayout.closeDrawer(mDrawer);
     }
-
 
 
 }
