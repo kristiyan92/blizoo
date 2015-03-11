@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Activity titles -->
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_lectors">LectorsActivity</string>
+    <string name="title_activity_sponsors">SponsorsActivity</string>
+    <string name="title_activity_partners">PartnersActivity</string>
+    <string name="title_activity_program">ProgramActivity</string>
+    <string name="title_activity_simpledirection">SimpleDirection</string>
+    <string name="title_activity_congressdestination">CongressDestinationActivity</string>
+    <!-- Activity titles -->
+
+    <string name="app_name">EcommCongress</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Настройки</string>
+    <string name="cancel">Отказ</string>
+    <string name="no_results">Няма резултати</string>
+
+    <!-- GCM strings -->
+    <string name="gcm_deleted">От GCM: сървърът е изтрит %1$d очаква съобщение!</string>
+    <string name="gcm_error">От GCM: грешка (%1$s).</string>
+    <string name="gcm_recoverable_error">От GCM: възстановена грешка (%1$s).</string>
+    <!-- GCM strings -->
+
+    <!-- GPS Alert Dialog -->
+    <string name="GPS_alert_dialog_title">GPS настройки</string>
+    <string name="GPS_alert_dialog_message">GPS не е включен.Искате ли да отидете в настройки?</string>
+    <!-- GPS Alert Dialog -->
+
+    <!--Contact With Us-->
+    <string name="your_name">Вашите имена</string>
+    <string name="your_email">Email адрес</string>
+    <string name="your_message">Вашето съобщение</string>
+    <string name="send_message">Изпрати</string>
+    <!--Contact With Us-->
+
+    <string name="title_activity_lector_details">LectorDetailsActivity</string>
+
+    <!--Navigation Drawer-->
+    <string-array name="menu_items">
+        <item>Програма</item>
+        <item>Лектори</item>
+        <item>Партньори</item>
+        <item>Спонсори</item>
+        <item>Как да стигна</item>
+        <item>English</item>
+    </string-array>
+
+    <!-- ******* Nav Drawer List Item Icons ******* -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+    </array>
+
+    <array name="nav_drawer_icons_selected">
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/hamburger_bw</item>
+    </array>
+
+    <string name="drawer_open">Отворена навигация</string>
+    <string name="drawer_close">Затворена навигация</string>
+    <!--Navigation Drawer-->
+
+    <string name="hello_blank_fragment">Здравей празен фрагмент</string>
+
+    <!-- Congress Destination -->
+    <string name="how_to_get_there">Как да стигнете</string>
+    <string name="navigation_button">Маршрут</string>
+    <string name="congress_address">\u2022Адрес: София,бул.Цариградско Шосе 147;</string>
+    <string name="gps_coordinates">\u2022GPS кординати: 42.649324,23.395420;</string>
+    <string name="arrive_with_metro">\u2022С метро: Линия 1 - до спирка Интер Експо Център Цариградско Шосе;</string>
+    <string name="arrive_with_bus">\u2022С автобус: Линия 1, 3, 5, 6, 114, 384;</string>
+    <string name="cannot_add_marker">Маркерът не може да се добави</string>
+    <string name="error_no_google_maps">Google Maps не беше намерен !</string>
+    <!-- Congress Destination -->
+
+    <!-- Activity Details -->
+    <string name="conference_activity_lecturers">Лектори на събитието:</string>
+    <string name="button_add_event">ЩЕ ПРИСЪСТВАМ</string>
+    <string name="button_delete_event">ИЗТРИЙ СЪБИТИЕТО</string>
+    <string name="event_created">Събитието бе добавено в календара</string>
+    <string name="event_deleted">Събитието бе изтрито от календара</string>
+    <string name="event_not_found">Събитието не е открито !</string>
+    <string name="error_no_calendar">Не е открит календар !</string>
+    <!-- Activity Details -->
+
+    <!-- Program -->
+    <string name="program_text">Програма</string>
+    <string name="reload_program">Опитай пак</string>
+
+    <!--Toast -->
+    <string name="invalid_request_params">Невалидни параметри</string>
+    <string name="no_connection">Грешка в сървара</string>
+    <!--Toast -->
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray_alpha">#CC000000</color>
+    <color name="no_result_color">#000000</color>
+    <color name="blue">#3F599E</color>
+
+    <!-- Program colors -->
+    <color name="default_group_activity_color">#efefef</color>
+    <color name="default_time_view_color">#344d95</color>
+    <color name="highlight_group_activity_color">#343535</color>
+    <color name="highlight_time_view_color">#83c341</color>
+    <color name="default_top_view_color">#efefef</color>
+    <color name="highlight_top_view_color">#343535</color>
+    <color name="conference_separator">#575859</color>
+    
+    <!-- Lecturers colors -->
+    <color name="green_text">#76ba40</color>
+    <color name="light_gray">#f7f7f7</color>
+    <color name="dark_gray">#959595</color>
+
+    <!-- Nav drawer listView separator -->
+    <color name="drawer_list_separator">#e9e9e9</color>
+
+</resources>
