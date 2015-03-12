@@ -1736,15 +1736,16 @@ containing a value of this type.
         public static final int drawer_shadow=0x7f02004d;
         public static final int hamburger_bw=0x7f02004e;
         public static final int hamburger_bw_selected=0x7f02004f;
-        public static final int ic_launcher=0x7f020050;
-        public static final int ic_plusone_medium_off_client=0x7f020051;
-        public static final int ic_plusone_small_off_client=0x7f020052;
-        public static final int ic_plusone_standard_off_client=0x7f020053;
-        public static final int ic_plusone_tall_off_client=0x7f020054;
-        public static final int navigation=0x7f020055;
-        public static final int navigation_drawer_item_selector=0x7f020056;
-        public static final int powered_by_google_dark=0x7f020057;
-        public static final int powered_by_google_light=0x7f020058;
+        public static final int hub32=0x7f020050;
+        public static final int ic_launcher=0x7f020051;
+        public static final int ic_plusone_medium_off_client=0x7f020052;
+        public static final int ic_plusone_small_off_client=0x7f020053;
+        public static final int ic_plusone_standard_off_client=0x7f020054;
+        public static final int ic_plusone_tall_off_client=0x7f020055;
+        public static final int navigation=0x7f020056;
+        public static final int navigation_drawer_item_selector=0x7f020057;
+        public static final int powered_by_google_dark=0x7f020058;
+        public static final int powered_by_google_light=0x7f020059;
     }
     public static final class id {
         public static final int action_bar=0x7f0b0045;
@@ -1803,7 +1804,7 @@ containing a value of this type.
         public static final int line=0x7f0b0062;
         public static final int listMode=0x7f0b0009;
         public static final int list_item=0x7f0b0039;
-        public static final int map_view=0x7f0b0061;
+        public static final int map=0x7f0b0061;
         public static final int match_parent=0x7f0b002a;
         public static final int middle=0x7f0b0015;
         public static final int monochrome=0x7f0b0031;

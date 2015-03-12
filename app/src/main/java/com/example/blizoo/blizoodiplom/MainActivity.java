@@ -1,5 +1,6 @@
 package com.example.blizoo.blizoodiplom;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -434,10 +435,10 @@ public class MainActivity extends DefaultActivity {
 
             case 0:
                 backStack.add(0);
-                CoveringFragment covering = new CoveringFragment();
+                CoveringFragment lecturersFragment = new CoveringFragment();
                 mFragmentTransaction
-                        .replace(R.id.content_frame, covering, "CoveringFragment")
-                        .addToBackStack("CoveringFragment").commit();
+                        .replace(R.id.content_frame, lecturersFragment, "LecturersFragment")
+                        .addToBackStack("LecturersFragment").commit();
                 break;
          /*   case 1:
                 backStack.add(1);

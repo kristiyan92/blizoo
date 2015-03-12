@@ -1,201 +1,132 @@
 package com.example.blizoo.blizoodiplom;
 
 
-import android.location.Address;
-import android.location.Geocoder;
-import android.support.v4.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.maps.GeoPoint;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.List;
 
 import static android.view.View.OnClickListener;
 
 
-public class CoveringFragment extends Fragment implements OnClickListener {
+public class CoveringFragment extends Fragment {
 
-    // Boolean key used to prevent always to send data to the server
-    private Boolean mSendPostRequest = true;
+    private static final LatLng LOWER_MANHATTAN = new LatLng(43.216248, 27.921407);
+    private static final LatLng TIMES_SQUARE = new LatLng(43.213770, 27.922638);
+    private static final LatLng BROOKLYN_BRIDGE = new LatLng(43.218098, 27.931969);
+    private static final LatLng Silistra = new LatLng(43.219631, 27.920808);
 
-    //Default debugging tag
-    private static final String TAG = "Conference Destination Fragment";
-
-    //Create google maps
     private GoogleMap googleMap;
+    private SupportMapFragment mapFragment;
+    private Circle mCircle;
 
-
-    //variable which will hold congress destination coordination
-    private LatLng mCongressLocation = new LatLng(42.649324, 23.395420);
-
-
-    //Create google maps view, and with him we can show google maps on the screen
-    private MapView mMapView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.covering_fragment, container,
-                false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.covering_fragment, container, false);
 
-        initializeLayoutsElements(view);
-
-        mMapView.onCreate(savedInstanceState);
-
-        //call method which will create and initialize google maps
         createMap();
-        getLocationFromAddress("Варна");
-
 
         return view;
     }
+/*    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-    @Override
+    }*/
+
+ /*   @Override
     public void onResume() {
         super.onResume();
+        if (googleMap == null) {
+            googleMap = fragment.getMap();
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)));
+            if (googleMap != null) {
+                addLines();
+            }
+        }
+    }*/
 
-        mMapView.onResume();
-    }
+    private void createMap() {
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
+        FragmentManager fm = getChildFragmentManager();
+        mapFragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
+        if (mapFragment == null) {
+            mapFragment = SupportMapFragment.newInstance();
+            fm.beginTransaction().replace(R.id.map, mapFragment).commit();
+        }
+        if (googleMap == null) {
+            googleMap = mapFragment.getMap();
+            addMarker();
 
-        mMapView.onDestroy();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        mMapView.onPause();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-
-        mMapView.onLowMemory();
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        mMapView.onSaveInstanceState(outState);
-    }
-
-    /**
-     * Initialize logic behind Click Listeners
-     *
-     * @param view
-     */
-    @Override
-    public void onClick(View view) {
-        Integer identifierId = view.getId();
-
-        switch (identifierId) {
-
-
+            if (googleMap != null) {
+                addLines();
+            }
         }
     }
 
-    /**
-     * Make initialize of all layout elements and assign click listeners.
-     */
-    private void initializeLayoutsElements(View view) {
+    private void drawCircle(LatLng position) {
+        double radiusInMeters = 500.0;
+        int strokeColor = 0xffff0000; //red outline
+        int shadeColor = 0x44ff0000; //opaque red fill
 
-        mMapView = (MapView) view.findViewById(R.id.map_view);
+        //add circle
+        CircleOptions circle = new CircleOptions();
+        circle.center(position).fillColor(shadeColor).radius(radiusInMeters).strokeColor(strokeColor).strokeWidth(4);
+        googleMap.addCircle(circle);
+
 
     }
 
-    /**
-     * Initialize and add google maps and set markers into maps if we have markers
-     * at all.After setting marker with some params into maps create camera animation
-     * and bring user to destination which we can set pragmatically
-     */
-    private void createMap() {
+    private void addMarker() {
 
-        //try to initialize google maps
         try {
-            MapsInitializer.initialize(getActivity().getApplicationContext());
-            mMapView.getMapAsync(new OnMapReadyCallback() {
-                @Override
-                public void onMapReady(GoogleMap map) {
-                    googleMap = map;
-                    googleMap.getUiSettings().setMapToolbarEnabled(false);
-                    addMarkerToMap();
-                }
-            });
+            googleMap.addMarker(new MarkerOptions().position(TIMES_SQUARE)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.hub32)));
+            drawCircle(TIMES_SQUARE);
+            googleMap.addMarker(new MarkerOptions().position(BROOKLYN_BRIDGE)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.hub32)));
+            drawCircle(BROOKLYN_BRIDGE);
+            googleMap.addMarker(new MarkerOptions().position(LOWER_MANHATTAN)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.hub32)));
+            drawCircle(LOWER_MANHATTAN);
+            googleMap.addMarker(new MarkerOptions().position(Silistra)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.hub32)));
+            drawCircle(LOWER_MANHATTAN);
 
         } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(getActivity(), "Cannot add marker", Toast.LENGTH_LONG).show();
         }
-
     }
 
-    public LatLng getLocationFromAddress(String strAddress) {
+    private void addLines() {
 
-        Geocoder coder = new Geocoder(getActivity());
-        List<Address> address;
-        LatLng p1 = null;
-
-        try {
-            address = coder.getFromLocationName(strAddress, 5);
-            if (address == null) {
-                return null;
-            }
-            Address location = address.get(0);
-            location.getLatitude();
-            location.getLongitude();
-
-            p1 = new LatLng(location.getLatitude(), location.getLongitude() );
-
-
-        } catch (Exception ex) {
-
-            ex.printStackTrace();
-        }
-
-        return p1;
-    }
-
-
-    /**
-     * Add marker to the map*
-     */
-    private void addMarkerToMap() {
-
-        // create and add marker
-        try {
-            Marker marker = googleMap.addMarker(new MarkerOptions()
-                    .position(getLocationFromAddress("Лозенград 3,Варна")).title("eCommCongress"));
-
-        } catch (Exception exception) {
-            // We can't add Google Map Marker
-            Toast.makeText(getActivity(), getString(R.string.cannot_add_marker), Toast.LENGTH_LONG).show();
-        }
-
-        //set camera position to zoom 16
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(getLocationFromAddress("Лозенград 3,Варна")).zoom(10).build();
-        //after set camera position get to this zoom level with some animation
-        googleMap.animateCamera(CameraUpdateFactory
-                .newCameraPosition(cameraPosition));
-
+        googleMap
+                .addPolyline((new PolylineOptions())
+                        .add(TIMES_SQUARE, BROOKLYN_BRIDGE, LOWER_MANHATTAN,
+                                TIMES_SQUARE,Silistra).width(5).color(Color.BLUE)
+                        .geodesic(true));
+        // move camera to zoom on map
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Silistra,
+                10));
     }
 
 
