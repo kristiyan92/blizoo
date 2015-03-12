@@ -1,8 +1,11 @@
 package com.example.blizoo.blizoodiplom;
 
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +19,9 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.maps.GeoPoint;
+
+import java.util.List;
 
 import static android.view.View.OnClickListener;
 
@@ -30,6 +36,7 @@ public class CoveringFragment extends Fragment implements OnClickListener {
 
     //Create google maps
     private GoogleMap googleMap;
+
 
     //variable which will hold congress destination coordination
     private LatLng mCongressLocation = new LatLng(42.649324, 23.395420);
@@ -50,6 +57,8 @@ public class CoveringFragment extends Fragment implements OnClickListener {
 
         //call method which will create and initialize google maps
         createMap();
+        getLocationFromAddress("Варна");
+
 
         return view;
     }
@@ -138,6 +147,33 @@ public class CoveringFragment extends Fragment implements OnClickListener {
 
     }
 
+    public LatLng getLocationFromAddress(String strAddress) {
+
+        Geocoder coder = new Geocoder(getActivity());
+        List<Address> address;
+        LatLng p1 = null;
+
+        try {
+            address = coder.getFromLocationName(strAddress, 5);
+            if (address == null) {
+                return null;
+            }
+            Address location = address.get(0);
+            location.getLatitude();
+            location.getLongitude();
+
+            p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+        }
+
+        return p1;
+    }
+
+
     /**
      * Add marker to the map*
      */
@@ -146,7 +182,7 @@ public class CoveringFragment extends Fragment implements OnClickListener {
         // create and add marker
         try {
             Marker marker = googleMap.addMarker(new MarkerOptions()
-                    .position(mCongressLocation).title("eCommCongress"));
+                    .position(getLocationFromAddress("Лозенград 3,Варна")).title("eCommCongress"));
 
         } catch (Exception exception) {
             // We can't add Google Map Marker
@@ -155,7 +191,7 @@ public class CoveringFragment extends Fragment implements OnClickListener {
 
         //set camera position to zoom 16
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(mCongressLocation).zoom(16).build();
+                .target(getLocationFromAddress("Лозенград 3,Варна")).zoom(10).build();
         //after set camera position get to this zoom level with some animation
         googleMap.animateCamera(CameraUpdateFactory
                 .newCameraPosition(cameraPosition));

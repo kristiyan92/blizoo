@@ -20,6 +20,7 @@
     <!-- Required to show current location -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-library android:name="com.google.android.maps"/>
 
     <!-- Required OpenGL ES 2.0. for Maps V2 -->
     <uses-feature
@@ -45,8 +46,9 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDaBo0mbKPc1yttMNzmPInSZp9RAUabK_M" />
-        <!--<meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />-->
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
