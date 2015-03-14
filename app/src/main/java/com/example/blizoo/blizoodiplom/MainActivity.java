@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 
 import com.example.blizoo.blizoodiplom.adapters.NavDrawerListAdapter;
 import com.example.blizoo.blizoodiplom.models.NavDrawerItem;
+import com.example.blizoo.blizoodiplom.models.NearbyClientsContracts;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -155,99 +156,7 @@ public class MainActivity extends DefaultActivity {
 
     }
 
-    /**
-     * Prettify the given dates to more readable string*
-     *
-     * @param startDate - date for the first part of the pretty string
-     * @param endDate   - date for the second part of the pretty string
-     * @return - pretty data (Ex. "9:00 - 9:30")
-     */
-    public String getConferenceActivityTime(String startDate, String endDate) {
 
-        try {
-            String[] date1 = startDate.split(" ");
-            String[] date2 = endDate.split(" ");
-
-            String startTime = date1[1];
-            String endTime = date2[1];
-
-            return startTime + " - " + endTime;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
-
-    /**
-     * Method which parse two strings to dates and check whatever current time is
-     * between these two dates
-     *
-     * @param startDate
-     * @param endData
-     * @return true if current time is between dates
-     */
-    public boolean isInCurrentTime(String startDate, String endData) {
-        // make calendar instance
-        Calendar cal = Calendar.getInstance();
-        // set date format
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.ENGLISH);
-        // get current time
-        String currentTime = sdf.format(cal.getTime());
-
-        try {
-            // parse strings to dates
-            Date current = (Date) sdf.parse(currentTime);
-            Date givenStartTimeDate = (Date) sdf.parse(startDate);
-            Date givenEndTimeDate = (Date) sdf.parse(endData);
-
-            //int difference = current.compareTo(givenStartTimeDate);
-            int compareWithStartData = current.compareTo(givenStartTimeDate);
-            int compareWithEndData = current.compareTo(givenEndTimeDate);
-
-           /* if (difference == 0) {
-                // the dates are equal
-            } else if (difference < 0) {
-                // the date is before now
-            } else {
-                // the date is after now
-            }*/
-
-            // if current data is between start and end given dates
-            // return true to expand this item
-            if (compareWithStartData > 0 && compareWithEndData < 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    @SuppressWarnings("unused")
-    /**
-     * Method which change date format to dd.MM.yyyy
-     * @param date
-     * @return - formatted date
-     */
-    public String changeDateFormat(String date) {
-        // set date format
-        SimpleDateFormat sdfOriginal = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-        SimpleDateFormat sdfNew = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
-        Date parseStrToDate = null;
-        String formattedDate = "";
-        try {
-            // parse string to date, to change it format
-            parseStrToDate = (Date) sdfOriginal.parse(date);
-            // set formatted date
-            formattedDate = sdfNew.format(parseStrToDate);
-            return formattedDate;
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return formattedDate;
-        }
-    }
 
     /**
      * Initialize layout elements and set there click listeners
@@ -435,25 +344,28 @@ public class MainActivity extends DefaultActivity {
 
             case 0:
                 backStack.add(0);
-                CoveringFragment lecturersFragment = new CoveringFragment();
+
+                CoveringFragment coveringFragment = new CoveringFragment();
                 mFragmentTransaction
-                        .replace(R.id.content_frame, lecturersFragment, "LecturersFragment")
-                        .addToBackStack("LecturersFragment").commit();
+                        .replace(R.id.content_frame, coveringFragment, "CoveringFragment")
+                        .addToBackStack("CoveringFragment").commit();
+
                 break;
-         /*   case 1:
+           case 1:
                 backStack.add(1);
-                LecturersFragment lecturersFragment = new LecturersFragment();
-                mFragmentTransaction
-                        .replace(R.id.content_frame, lecturersFragment, "LecturersFragment")
-                        .addToBackStack("LecturersFragment").commit();
+               NearbyClientsContractsFragment clientContractFragment = new NearbyClientsContractsFragment();
+               mFragmentTransaction
+                       .replace(R.id.content_frame, clientContractFragment, "NearbyClientsContractsFragment")
+                       .addToBackStack("NearbyClientsContractsFragment").commit();
                 break;
             case 2:
                 backStack.add(2);
-                PartnersFragment partnersFragment = new PartnersFragment();
+                ContactUsFragment partnersFragment = new ContactUsFragment();
                 mFragmentTransaction
-                        .replace(R.id.content_frame, partnersFragment, "PartnersFragment")
-                        .addToBackStack("PartnersFragment").commit();
+                        .replace(R.id.content_frame, partnersFragment, "ContactUsFragment")
+                        .addToBackStack("ContactUsFragment").commit();
                 break;
+            /*
             case 3:
                 backStack.add(3);
                 SponsorsFragment sponsorsFragment = new SponsorsFragment();

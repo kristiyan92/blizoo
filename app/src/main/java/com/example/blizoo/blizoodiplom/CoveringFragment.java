@@ -1,18 +1,21 @@
 package com.example.blizoo.blizoodiplom;
 
-
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.blizoo.blizoodiplom.R;
+import com.example.blizoo.blizoodiplom.models.NearbyClientsContracts;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -20,6 +23,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -41,20 +45,46 @@ public class CoveringFragment extends Fragment {
     private GoogleMap googleMap;
     private SupportMapFragment mapFragment;
     private ArrayList<LatLng> arrayPoints = null;
+    private static View view;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.covering_fragment, container, false);
 
-        arrayPoints = new ArrayList<LatLng>();
-        arrayPoints.add(TIMES_SQUARE);
-        arrayPoints.add(BROOKLYN_BRIDGE);
-        arrayPoints.add(LOWER_MANHATTAN);
-        arrayPoints.add(Silistra);
+
+        //View view = inflater.inflate(R.layout.covering_fragment, container, false);
+        if (view != null) {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null)
+                parent.removeView(view);
+        }
+        try {
+            view = inflater.inflate(R.layout.covering_fragment, container, false);
+        } catch (InflateException e) {
+        /* map is already there, just return view as it is */
+        }
+
+
+
         createMap();
+        initializeLayoutElements();
 
         return view;
+    }
+
+    private void initializeLayoutElements() {
+
+        googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                NearbyClientsContractsFragment clientContractFragment = new NearbyClientsContractsFragment();
+                transaction
+                        .replace(R.id.content_frame, clientContractFragment, "NearbyClientsContractsFragment")
+                        .addToBackStack("NearbyClientsContractsFragment").commit();
+                return true;
+            }
+        });
     }
 /*    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -62,29 +92,42 @@ public class CoveringFragment extends Fragment {
 
     }*/
 
- /*   @Override
+
+
+  /*  @Override
     public void onResume() {
         super.onResume();
+        FragmentManager fm = getChildFragmentManager();
+        mapFragment = (SupportMapFragment) fm.findFragmentById(R.id.google_map);
+        if (mapFragment == null) {
+            mapFragment = SupportMapFragment.newInstance();
+            fm.beginTransaction().replace(R.id.google_map, mapFragment).commit();
+        }
         if (googleMap == null) {
-            googleMap = fragment.getMap();
-            googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)));
+            googleMap = mapFragment.getMap();
+            // addMarker();
+
             if (googleMap != null) {
-                addLines();
+                addMarker();
             }
         }
     }*/
 
     private void createMap() {
-
+        arrayPoints = new ArrayList<LatLng>();
+        arrayPoints.add(TIMES_SQUARE);
+        arrayPoints.add(BROOKLYN_BRIDGE);
+        arrayPoints.add(LOWER_MANHATTAN);
+        arrayPoints.add(Silistra);
         FragmentManager fm = getChildFragmentManager();
-        mapFragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
+        mapFragment = (SupportMapFragment) fm.findFragmentById(R.id.google_map);
         if (mapFragment == null) {
             mapFragment = SupportMapFragment.newInstance();
-            fm.beginTransaction().replace(R.id.map, mapFragment).commit();
+            fm.beginTransaction().replace(R.id.google_map, mapFragment).commit();
         }
         if (googleMap == null) {
             googleMap = mapFragment.getMap();
-           // addMarker();
+            // addMarker();
 
             if (googleMap != null) {
                 addMarker();
@@ -104,7 +147,6 @@ public class CoveringFragment extends Fragment {
 
 
     }
-
 
 
     private void addMarker() {
@@ -163,6 +205,3 @@ public class CoveringFragment extends Fragment {
 
 
 }
-
-
-
