@@ -11,27 +11,17 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
-
-import com.example.blizoo.blizoodiplom.R;
-import com.example.blizoo.blizoodiplom.models.NearbyClientsContracts;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
-
 import java.util.ArrayList;
-import java.util.List;
-
-import static android.view.View.OnClickListener;
 
 
 public class CoveringFragment extends Fragment {
@@ -63,8 +53,6 @@ public class CoveringFragment extends Fragment {
         } catch (InflateException e) {
         /* map is already there, just return view as it is */
         }
-
-
 
         createMap();
         initializeLayoutElements();

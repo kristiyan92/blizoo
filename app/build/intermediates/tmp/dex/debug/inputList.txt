@@ -2,7 +2,6 @@
 /home/dop1ng/AndroidStudioProjects/BlizooDiplom/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-3565f991cc977e9b640016595c90f9b3f8d60d11.jar
 /home/dop1ng/AndroidStudioProjects/BlizooDiplom/app/build/intermediates/pre-dexed/debug/maps-6de8cdfd147a4aabe10fc32a98edad7dd9dd16f8.jar
 /home/dop1ng/AndroidStudioProjects/BlizooDiplom/app/build/intermediates/pre-dexed/debug/volley-160137c9285912067f2853e8f311dcd996e85f4b.jar
-/home/dop1ng/AndroidStudioProjects/BlizooDiplom/app/build/intermediates/pre-dexed/debug/library-1.0.6-ee4606505b35c02356efe92528b42b9a47e24c4d.jar
 /home/dop1ng/AndroidStudioProjects/BlizooDiplom/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-2b277ee841c88f6119d788ef87731c10f8606079.jar
 /home/dop1ng/AndroidStudioProjects/BlizooDiplom/app/build/intermediates/pre-dexed/debug/classes-78be84006e1a4c595432619e48f9c24b9957149b.jar
 /home/dop1ng/AndroidStudioProjects/BlizooDiplom/app/build/intermediates/pre-dexed/debug/classes-f5b7ce678dbd3eed3cf91306eb401803475717e3.jar
