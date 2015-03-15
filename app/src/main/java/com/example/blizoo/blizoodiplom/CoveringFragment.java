@@ -65,11 +65,18 @@ public class CoveringFragment extends Fragment {
         googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
+
+                Fragment newFragment = new NearbyClientsContractsFragment();
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                MainActivity.backStack.add(1);
+                transaction.addToBackStack("NearbyClientsContractsFragment");
+                transaction.replace(R.id.content_frame, newFragment).commit();
+
+               /* FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 NearbyClientsContractsFragment clientContractFragment = new NearbyClientsContractsFragment();
                 transaction
                         .replace(R.id.content_frame, clientContractFragment, "NearbyClientsContractsFragment")
-                        .addToBackStack("NearbyClientsContractsFragment").commit();
+                        .addToBackStack("NearbyClientsContractsFragment").commit();*/
                 return true;
             }
         });
