@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.example.blizoo.blizoodiplom.adapters.ApartmentsInfoAdapter;
 import com.example.blizoo.blizoodiplom.adapters.NavDrawerListAdapter;
 import com.example.blizoo.blizoodiplom.models.NavDrawerItem;
 import com.example.blizoo.blizoodiplom.models.NearbyClientsContracts;
@@ -155,7 +156,6 @@ public class MainActivity extends DefaultActivity {
         }
 
     }
-
 
 
     /**
@@ -351,19 +351,19 @@ public class MainActivity extends DefaultActivity {
                         .addToBackStack("CoveringFragment").commit();
 
                 break;
-           case 1:
+            case 1:
                 backStack.add(1);
-               NearbyClientsContractsFragment clientContractFragment = new NearbyClientsContractsFragment();
-               mFragmentTransaction
-                       .replace(R.id.content_frame, clientContractFragment, "NearbyClientsContractsFragment")
-                       .addToBackStack("NearbyClientsContractsFragment").commit();
+                NearbyClientsContractsFragment clientContractFragment = new NearbyClientsContractsFragment();
+                mFragmentTransaction
+                        .replace(R.id.content_frame, clientContractFragment, "NearbyClientsContractsFragment")
+                        .addToBackStack("NearbyClientsContractsFragment").commit();
                 break;
             case 2:
                 backStack.add(2);
-                ContactUsFragment partnersFragment = new ContactUsFragment();
+                AparmentsInfoFragment partnersFragment = new AparmentsInfoFragment();
                 mFragmentTransaction
-                        .replace(R.id.content_frame, partnersFragment, "ContactUsFragment")
-                        .addToBackStack("ContactUsFragment").commit();
+                        .replace(R.id.content_frame, partnersFragment, "AparmentsInfoFragment")
+                        .addToBackStack("AparmentsInfoFragment").commit();
                 break;
             /*
             case 3:

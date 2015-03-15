@@ -1761,12 +1761,15 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0b0042;
         public static final int action_mode_bar_stub=0x7f0b0041;
         public static final int action_mode_close_button=0x7f0b0034;
-        public static final int action_settings=0x7f0b0069;
+        public static final int action_settings=0x7f0b006d;
         public static final int activity_chooser_view_content=0x7f0b0035;
         public static final int adjust_height=0x7f0b0016;
         public static final int adjust_width=0x7f0b0017;
         public static final int always=0x7f0b001b;
-        public static final int app_toolbar=0x7f0b005a;
+        public static final int apartment_info_gridview=0x7f0b0064;
+        public static final int apartment_number=0x7f0b005b;
+        public static final int apartment_progressbar=0x7f0b0065;
+        public static final int app_toolbar=0x7f0b005c;
         public static final int beginning=0x7f0b0013;
         public static final int book_now=0x7f0b002b;
         public static final int buyButton=0x7f0b0028;
@@ -1774,13 +1777,13 @@ containing a value of this type.
         public static final int buy_with_google=0x7f0b002d;
         public static final int checkbox=0x7f0b003d;
         public static final int classic=0x7f0b002f;
-        public static final int client_contract_listview=0x7f0b0063;
-        public static final int client_last_name_textview=0x7f0b0067;
-        public static final int client_name_textview=0x7f0b0066;
-        public static final int client_phone_textview=0x7f0b0068;
-        public static final int client_swipe_refresh_layout=0x7f0b0062;
+        public static final int client_contract_listview=0x7f0b0067;
+        public static final int client_last_name_textview=0x7f0b006b;
+        public static final int client_name_textview=0x7f0b006a;
+        public static final int client_phone_textview=0x7f0b006c;
+        public static final int client_swipe_refresh_layout=0x7f0b0066;
         public static final int collapseActionView=0x7f0b001c;
-        public static final int contact_with_us_txt=0x7f0b005b;
+        public static final int contact_with_us_txt=0x7f0b005d;
         public static final int content_frame=0x7f0b0055;
         public static final int decor_content_parent=0x7f0b0043;
         public static final int default_activity_button=0x7f0b0038;
@@ -1796,7 +1799,7 @@ containing a value of this type.
         public static final int end=0x7f0b0014;
         public static final int expand_activities_button=0x7f0b0036;
         public static final int expanded_menu=0x7f0b003c;
-        public static final int google_map=0x7f0b0061;
+        public static final int google_map=0x7f0b0063;
         public static final int grayscale=0x7f0b0030;
         public static final int holo_dark=0x7f0b0023;
         public static final int holo_light=0x7f0b0024;
@@ -1806,9 +1809,10 @@ containing a value of this type.
         public static final int icon=0x7f0b003a;
         public static final int ifRoom=0x7f0b001d;
         public static final int image=0x7f0b0037;
-        public static final int lectors_progressbar=0x7f0b0064;
+        public static final int imgGridItem=0x7f0b005a;
+        public static final int lectors_progressbar=0x7f0b0068;
         public static final int left_drawer=0x7f0b0059;
-        public static final int line=0x7f0b0065;
+        public static final int line=0x7f0b0069;
         public static final int listMode=0x7f0b0009;
         public static final int list_item=0x7f0b0039;
         public static final int match_parent=0x7f0b002a;
@@ -1817,7 +1821,7 @@ containing a value of this type.
         public static final int never=0x7f0b001e;
         public static final int none=0x7f0b000e;
         public static final int normal=0x7f0b000a;
-        public static final int pb_sponsors=0x7f0b0060;
+        public static final int pb_sponsors=0x7f0b0062;
         public static final int production=0x7f0b0025;
         public static final int progress_circular=0x7f0b0005;
         public static final int progress_horizontal=0x7f0b0006;
@@ -1835,7 +1839,7 @@ containing a value of this type.
         public static final int search_src_text=0x7f0b004e;
         public static final int search_voice_btn=0x7f0b0052;
         public static final int selectionDetails=0x7f0b0029;
-        public static final int send_message_button=0x7f0b005f;
+        public static final int send_message_button=0x7f0b0061;
         public static final int shortcut=0x7f0b003e;
         public static final int showCustom=0x7f0b000f;
         public static final int showHome=0x7f0b0010;
@@ -1851,9 +1855,9 @@ containing a value of this type.
         public static final int useLogo=0x7f0b0012;
         public static final int withText=0x7f0b001f;
         public static final int wrap_content=0x7f0b0022;
-        public static final int your_email_et=0x7f0b005d;
-        public static final int your_message_et=0x7f0b005e;
-        public static final int your_name_et=0x7f0b005c;
+        public static final int your_email_et=0x7f0b005f;
+        public static final int your_message_et=0x7f0b0060;
+        public static final int your_name_et=0x7f0b005e;
     }
     public static final class integer {
         public static final int abc_max_action_buttons=0x7f0c0000;
@@ -1884,14 +1888,16 @@ containing a value of this type.
         public static final int abc_search_view=0x7f040015;
         public static final int abc_simple_dropdown_hint=0x7f040016;
         public static final int activity_main=0x7f040017;
-        public static final int app_toolbar=0x7f040018;
-        public static final int contact_us_fragment=0x7f040019;
-        public static final int covering_fragment=0x7f04001a;
-        public static final int fragment_contact_us=0x7f04001b;
-        public static final int fragment_nearby_client_contracts=0x7f04001c;
-        public static final int menu_list_item=0x7f04001d;
-        public static final int nearby_client_contract_list_item=0x7f04001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f04001f;
+        public static final int aparments_info_grid_item=0x7f040018;
+        public static final int app_toolbar=0x7f040019;
+        public static final int contact_us_fragment=0x7f04001a;
+        public static final int covering_fragment=0x7f04001b;
+        public static final int fragment_aparments_info=0x7f04001c;
+        public static final int fragment_contact_us=0x7f04001d;
+        public static final int fragment_nearby_client_contracts=0x7f04001e;
+        public static final int menu_list_item=0x7f04001f;
+        public static final int nearby_client_contract_list_item=0x7f040020;
+        public static final int support_simple_spinner_dropdown_item=0x7f040021;
     }
     public static final class menu {
         public static final int menu_main=0x7f0f0000;

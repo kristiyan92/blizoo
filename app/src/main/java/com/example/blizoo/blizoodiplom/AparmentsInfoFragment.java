@@ -1,6 +1,5 @@
 package com.example.blizoo.blizoodiplom;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,49 +7,33 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.blizoo.blizoodiplom.adapters.NearbyClientsContractsAdapter;
+import android.widget.GridView;
+import com.example.blizoo.blizoodiplom.adapters.ApartmentsInfoAdapter;
+import com.example.blizoo.blizoodiplom.models.ApartmentsInfo;
 import com.example.blizoo.blizoodiplom.models.NearbyClientsContracts;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-
-public class NearbyClientsContractsFragment extends Fragment {
+public class AparmentsInfoFragment extends Fragment {
 
 
     // array which will hold information about every clients
-    private ArrayList<NearbyClientsContracts> mClientContractsArrayList;
-    private ListView mClientsListView;
+    private ArrayList<ApartmentsInfo> mApartmentsArrayList;
+    private GridView mApartmentsGridView;
 
     // adapter for loading all clients and show they in list view
-    private NearbyClientsContractsAdapter mClientContractAdapter;
+    private ApartmentsInfoAdapter mArpartmentsAdapter;
 
-    private SwipeRefreshLayout mSwipeClientsRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle bundle) {
 
         View view = inflater
-                .inflate(R.layout.fragment_nearby_client_contracts, container, false);
+                .inflate(R.layout.fragment_aparments_info, container, false);
 
         initializeLayoutElements(view, bundle);
 
-       getClientsInHubRange();
+       //getClientsInHubRange();
         //((MainActivity) getActivity()).selectNavigationDrawer(1);
 
         return view;
@@ -62,8 +45,21 @@ public class NearbyClientsContractsFragment extends Fragment {
      */
     private void initializeLayoutElements(View view, Bundle bundle) {
 
-        mClientsListView = (ListView) view.findViewById(R.id.client_contract_listview);
-        mClientContractsArrayList = new ArrayList<NearbyClientsContracts>();
+        mApartmentsGridView = (GridView) view.findViewById(R.id.apartment_info_gridview);
+        mApartmentsArrayList = new ArrayList<ApartmentsInfo>();
+
+        for (int i = 0; i < 18; i++) {
+            ApartmentsInfo apartment = new ApartmentsInfo();
+
+            apartment.setNumber(Integer.toString(18-i));
+            mApartmentsArrayList.add(apartment);
+            Log.d("NAME",mApartmentsArrayList.toString());
+
+        }
+
+        mArpartmentsAdapter = new ApartmentsInfoAdapter(getActivity(), mApartmentsArrayList);
+        mApartmentsGridView.setNumColumns(3);
+        mApartmentsGridView.setAdapter(mArpartmentsAdapter);
     /*    NearbyClientsContracts clientObject = new NearbyClientsContracts();
         clientObject.setName("Kris");
       //  clientObject.setFamily("Mris");
@@ -76,22 +72,6 @@ public class NearbyClientsContractsFragment extends Fragment {
         // mEmptyView = (TextView) view.findViewById(android.R.id.empty);
         // mReloadLectorersButton = (Button) view.findViewById(R.id.reload_lecturers_button);
 
-        //initialize swipe refresh layout,set to him color scheme (which colors to use when refresh
-        //button appear to screen).After this set to layout listener.At body of this listener we set
-        //initialize values to sendPostRequest and paginationStartNumber, because when user refresh
-        //the page and values are not reset adapter may not refresh and in list view will show old
-        // values and the new one and make duplicate values in the list.
-        mSwipeClientsRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.client_swipe_refresh_layout);
-        mSwipeClientsRefreshLayout.setColorSchemeResources(R.color.blue, R.color.green_text);
-        mSwipeClientsRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-             /*   mSendPostRequest = true;
-                mPaginationStartPage = 1;
-                getLecturersRequest();*/
-            }
-        });
 
 
     }
@@ -99,7 +79,7 @@ public class NearbyClientsContractsFragment extends Fragment {
     /**
      * This method perform API call to get all client which are in hub range
      */
-    public void getClientsInHubRange() {
+  /*  public void getClientsInHubRange() {
 
         RequestQueue rq = Volley.newRequestQueue(getActivity());
         final String longetute = "43.21624";
@@ -122,14 +102,14 @@ public class NearbyClientsContractsFragment extends Fragment {
                     for (int i = 0; i < data.length(); i++) {
                         JSONObject object = data.getJSONObject(i);
                         NearbyClientsContracts client = new NearbyClientsContracts();
-                                /*HashMap<String, String> map = new HashMap<String, String>();
+                                *//*HashMap<String, String> map = new HashMap<String, String>();
 								Iterator<?> iter = agent.keys();
 
 								while (iter.hasNext()) {
 									String key = (String) iter.next();
 									String value = agent.getString(key);
 									map.put(key, value);
-								} */
+								} *//*
                         client.setName(object.getString("name"));
                         client.setFamily(object.getString("lat"));
                         client.setPhone(object.getString("lng"));
@@ -174,5 +154,5 @@ public class NearbyClientsContractsFragment extends Fragment {
 
         };
         rq.add(stringRequest);
-    }
+    }*/
 }
