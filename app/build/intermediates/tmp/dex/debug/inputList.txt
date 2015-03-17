@@ -1,8 +1,8 @@
-/home/bahk0/AndroidStudioProjects/blizoo/app/build/intermediates/classes/debug
-/home/bahk0/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-e6660156c6f8c9cc05ed2380e4e84063280ab1ba.jar
-/home/bahk0/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/maps-2291e523c71271db98fc7382cfa44c0dd403e834.jar
-/home/bahk0/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/volley-ef198d2ee933044e416eaebe11955505fdc9257e.jar
-/home/bahk0/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-37fe1d26f9ad5b26efe0953ce99ea7a68d75b018.jar
-/home/bahk0/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/classes-4d7d0efb69a8e71b28f98a499d1789c9b3ea5423.jar
-/home/bahk0/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/classes-3a68229eae310180fbb6c5daae73ec7fb9ef1320.jar
-/home/bahk0/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/classes-22d66dc2efa7f97b89ad55b840e48fea6a4af5d4.jar
+/home/dop1ng/AndroidStudioProjects/blizoo/app/build/intermediates/classes/debug
+/home/dop1ng/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-3565f991cc977e9b640016595c90f9b3f8d60d11.jar
+/home/dop1ng/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/maps-843d34cc15b9589e96f8ccb622d64cff762d980d.jar
+/home/dop1ng/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/volley-33181c7118737851735d2731e72bbe9c978b2aff.jar
+/home/dop1ng/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-85a08de71a33ce843759f2092505f82cfec9dec1.jar
+/home/dop1ng/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/classes-6def5a178eef60538eca48c953f55e07987c26fe.jar
+/home/dop1ng/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/classes-304e6295951c30c94cd2031dbaae9834e050fbda.jar
+/home/dop1ng/AndroidStudioProjects/blizoo/app/build/intermediates/pre-dexed/debug/classes-9eb921958d7c4464465f13ffe621997a65c044a5.jar

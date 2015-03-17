@@ -358,14 +358,14 @@ public class MainActivity extends DefaultActivity {
                         .replace(R.id.content_frame, clientContractFragment, "NearbyClientsContractsFragment")
                         .addToBackStack("NearbyClientsContractsFragment").commit();
                 break;
-            case 2:
+          /*  case 2:
                 backStack.add(2);
                 AparmentsInfoFragment partnersFragment = new AparmentsInfoFragment();
                 mFragmentTransaction
                         .replace(R.id.content_frame, partnersFragment, "AparmentsInfoFragment")
                         .addToBackStack("AparmentsInfoFragment").commit();
                 break;
-            /*
+
             case 3:
                 backStack.add(3);
                 SponsorsFragment sponsorsFragment = new SponsorsFragment();

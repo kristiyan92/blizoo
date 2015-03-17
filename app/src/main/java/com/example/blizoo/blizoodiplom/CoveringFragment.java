@@ -1,6 +1,8 @@
 package com.example.blizoo.blizoodiplom;
 
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +13,10 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -21,7 +26,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class CoveringFragment extends Fragment {
@@ -32,10 +39,13 @@ public class CoveringFragment extends Fragment {
     private static final LatLng Silistra = new LatLng(43.219631, 27.920808);
     private static final LatLng newPoint = new LatLng(43.217631, 27.120808);
 
+    private ImageButton searchAdressButton;
+    private EditText searchAdressEditText;
     private GoogleMap googleMap;
     private SupportMapFragment mapFragment;
     private ArrayList<LatLng> arrayPoints = null;
     private static View view;
+    private Boolean searchFlag = true;
 
 
     @Override
@@ -55,12 +65,13 @@ public class CoveringFragment extends Fragment {
         }
 
         createMap();
-        initializeLayoutElements();
+        initializeLayoutElements(view);
+        //getLocationFromAddress("Varna");
 
         return view;
     }
 
-    private void initializeLayoutElements() {
+    private void initializeLayoutElements(View view) {
 
         googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
@@ -78,6 +89,22 @@ public class CoveringFragment extends Fragment {
                         .replace(R.id.content_frame, clientContractFragment, "NearbyClientsContractsFragment")
                         .addToBackStack("NearbyClientsContractsFragment").commit();*/
                 return true;
+            }
+        });
+        searchAdressEditText = (EditText) view.findViewById(R.id.search_adress_edit_text);
+        searchAdressButton = (ImageButton) view.findViewById(R.id.search_adress_button);
+        searchAdressButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (searchFlag) {
+                  //  getLocationFromAddress(searchAdressEditText.getText().toString());
+                    searchAdressEditText.setVisibility(View.INVISIBLE);
+                    searchFlag = false;
+                } else {
+                    searchAdressEditText.setVisibility(View.VISIBLE);
+                    searchFlag = true;
+                }
+
             }
         });
     }
@@ -151,7 +178,7 @@ public class CoveringFragment extends Fragment {
         try {
             for (int i = 0; i < arrayPoints.size(); i++) {
                 googleMap.addMarker(new MarkerOptions().position(arrayPoints.get(i))
-                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.hub32)));
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.signal25)));
                 drawCircle(arrayPoints.get(i));
                 rectOptions.add(arrayPoints.get(i));
             }
@@ -166,6 +193,38 @@ public class CoveringFragment extends Fragment {
             Toast.makeText(getActivity(), "Cannot add marker", Toast.LENGTH_LONG).show();
         }
     }
+
+
+    /*public LatLng getLocationFromAddress(String strAddress) {
+
+        Geocoder coder = new Geocoder(getActivity());
+        List<Address> address;
+        LatLng p1 = null;
+
+        try {
+            address = coder.getFromLocationName(strAddress, 5);
+            if (address == null) {
+                Log.d("NOOOOO",p1.toString());
+                return null;
+            }
+            Address location = address.get(0);
+            location.getLatitude();
+            location.getLongitude();
+
+            p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+            Log.d("YESSSSSSSSSS",p1.toString());
+         //   googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(p1,14));
+
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+            Toast.makeText(getActivity(),"QSNO", Toast.LENGTH_LONG).show();
+        }
+
+        return p1;
+    }*/
+
 
     public float getDistanceInMetres(LatLng firstDest, LatLng secondDest) {
 

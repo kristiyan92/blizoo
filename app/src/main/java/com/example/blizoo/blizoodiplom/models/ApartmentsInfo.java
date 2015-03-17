@@ -7,6 +7,7 @@ package com.example.blizoo.blizoodiplom.models;
 public class ApartmentsInfo {
 
     private String number = "";
+    private String apartmentOfSelectedClient = "";
 
     public String getNumber() {
         return number;
@@ -14,6 +15,14 @@ public class ApartmentsInfo {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public String getApartmentOfSelectedClient() {
+        return apartmentOfSelectedClient;
+    }
+
+    public void setApartmentOfSelectedClient(String apartmentOfSelectedClient) {
+        this.apartmentOfSelectedClient = apartmentOfSelectedClient;
     }
   /*  private String mFamily = "";
     private String mPhone = "";*/

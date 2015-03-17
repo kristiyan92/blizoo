@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+   >
 
     <fragment
         android:id="@+id/google_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.google.android.gms.maps.SupportMapFragment" />
+        class="com.google.android.gms.maps.SupportMapFragment" >
 
+        <EditText
+            android:id="@+id/search_adress_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_toLeftOf="@+id/search_adress_button"
+            android:height="40dp"/>
+        <ImageButton
+            android:id="@+id/search_adress_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right|top"
+            android:padding="@dimen/small_margin"
+            android:background="@android:color/transparent"
+            android:src="@drawable/search32"/>
+
+    </fragment>
 </RelativeLayout>

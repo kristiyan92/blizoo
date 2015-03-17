@@ -43,20 +43,20 @@
         <item>Програма</item>
         <item>Лектори</item>
         <item>Партньори</item>
-        <item>Спонсори</item>
+        <item>Профилактика</item>
         <item>Как да стигна</item>
         <item>English</item>
     </string-array>
 
     <!-- ******* Nav Drawer List Item Icons ******* -->
     <array name="nav_drawer_icons">
-        <item>@drawable/hamburger_bw</item>
-        <item>@drawable/hamburger_bw</item>
-        <item>@drawable/hamburger_bw</item>
-        <item>@drawable/hamburger_bw</item>
-        <item>@drawable/hamburger_bw</item>
-        <item>@drawable/hamburger_bw</item>
-        <item>@drawable/hamburger_bw</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
     </array>
 
     <array name="nav_drawer_icons_selected">

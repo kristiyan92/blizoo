@@ -8,33 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.ImageLoader;
 import com.example.blizoo.blizoodiplom.R;
 import com.example.blizoo.blizoodiplom.models.ApartmentsInfo;
-import com.example.blizoo.blizoodiplom.models.NavDrawerItem;
-import com.example.blizoo.blizoodiplom.models.NearbyClientsContracts;
 
 import java.util.ArrayList;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
-import android.util.Base64;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
-import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
-import android.widget.SectionIndexer;
 import android.widget.Toast;
 
 public class ApartmentsInfoAdapter extends ArrayAdapter<ApartmentsInfo> {
@@ -45,7 +25,7 @@ public class ApartmentsInfoAdapter extends ArrayAdapter<ApartmentsInfo> {
 
     public ApartmentsInfoAdapter(Activity context,
                                  ArrayList<ApartmentsInfo> contractList) {
-        super(context, R.layout.aparments_info_grid_item, contractList);
+        super(context, R.layout.apartments_info_grid_item, contractList);
         this.mContext = context;
         this.mApartmentsList = contractList;
     }
@@ -70,7 +50,7 @@ public class ApartmentsInfoAdapter extends ArrayAdapter<ApartmentsInfo> {
         View rowView = convertView;
         if (rowView == null) {
             LayoutInflater inflater = mContext.getLayoutInflater();
-            rowView = inflater.inflate(R.layout.aparments_info_grid_item, null);
+            rowView = inflater.inflate(R.layout.apartments_info_grid_item, null);
             ViewHolder viewHolder = new ViewHolder();
 
             viewHolder.imgGridItem = (ImageView) rowView.findViewById(R.id.imgGridItem);
@@ -88,7 +68,7 @@ public class ApartmentsInfoAdapter extends ArrayAdapter<ApartmentsInfo> {
         holder.imgGridItem.setImageResource(R.drawable.ic_launcher);
         holder.apartmentNumber.setText(apartmentsObject.getNumber());
 
-        if(apartmentsObject.getNumber().equals("6")) {
+        if(apartmentsObject.getNumber().equals(apartmentsObject.getApartmentOfSelectedClient())) {
             holder.imgGridItem.setImageResource(R.drawable.ic_launcher);
             holder.apartmentNumber.setTextColor(Color.RED);
             holder.imgGridItem.setOnClickListener(new View.OnClickListener() {

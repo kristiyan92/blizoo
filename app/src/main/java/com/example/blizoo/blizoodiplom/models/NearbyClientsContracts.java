@@ -11,6 +11,7 @@ public class NearbyClientsContracts {
     private String mName = "";
     private String mFamily = "";
     private String mPhone = "";
+    private String clientId = "";
 
     public String getName() {
         return mName;
@@ -34,5 +35,13 @@ public class NearbyClientsContracts {
 
     public void setPhone(String mPhone) {
         this.mPhone = mPhone;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 }

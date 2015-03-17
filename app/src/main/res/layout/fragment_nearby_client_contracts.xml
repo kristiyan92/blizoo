@@ -3,14 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/client_contract_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+       android:gravity="center_horizontal"
+        android:text="Активни договори в околноста"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/client_swipe_refresh_layout"
         android:layout_width="match_parent"
+        android:layout_below="@+id/client_contract_label"
         android:layout_height="wrap_content">
 
         <ListView
             android:padding="@dimen/small_padding"
             android:clipToPadding="false"
+
             android:id="@+id/client_contract_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -18,7 +30,7 @@
 
 
     <ProgressBar
-        android:id="@+id/lectors_progressbar"
+        android:id="@+id/client_contract_progressbar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -38,7 +39,7 @@ public class NearbyClientsContractsFragment extends Fragment {
 
     // adapter for loading all clients and show they in list view
     private NearbyClientsContractsAdapter mClientContractAdapter;
-
+    private ProgressBar mPbClientsContract;
     private SwipeRefreshLayout mSwipeClientsRefreshLayout;
 
     @Override
@@ -50,7 +51,7 @@ public class NearbyClientsContractsFragment extends Fragment {
 
         initializeLayoutElements(view, bundle);
 
-       getClientsInHubRange();
+        getClientsInHubRange();
         //((MainActivity) getActivity()).selectNavigationDrawer(1);
 
         return view;
@@ -63,6 +64,7 @@ public class NearbyClientsContractsFragment extends Fragment {
     private void initializeLayoutElements(View view, Bundle bundle) {
 
         mClientsListView = (ListView) view.findViewById(R.id.client_contract_listview);
+        mPbClientsContract = (ProgressBar) view.findViewById(R.id.client_contract_progressbar);
         mClientContractsArrayList = new ArrayList<NearbyClientsContracts>();
     /*    NearbyClientsContracts clientObject = new NearbyClientsContracts();
         clientObject.setName("Kris");
@@ -101,11 +103,14 @@ public class NearbyClientsContractsFragment extends Fragment {
      */
     public void getClientsInHubRange() {
 
+        //show the progress bar
+        mPbClientsContract.setVisibility(View.VISIBLE);
+
         RequestQueue rq = Volley.newRequestQueue(getActivity());
         final String longetute = "43.21624";
         final String latetute = "27.921407";
         final String radius = "2000";
-        String url = "http://192.168.0.101/" + "clientsInHubRange.php";
+        String url = "http://192.168.2.28" + "clientsInHubRange.php";
         Log.d("URL", url);
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 url, new Response.Listener<String>() {
@@ -113,28 +118,24 @@ public class NearbyClientsContractsFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 try {
+
+                    mPbClientsContract.setVisibility(View.GONE);
+
                     Log.e("RESPONSE", response);
                     JSONArray data = new JSONArray(response);
 
-                    // ArrayList<HashMap<String, String>> agentsList =
-                    // new ArrayList<HashMap<String, String>>();
+
 
                     for (int i = 0; i < data.length(); i++) {
                         JSONObject object = data.getJSONObject(i);
                         NearbyClientsContracts client = new NearbyClientsContracts();
-                                /*HashMap<String, String> map = new HashMap<String, String>();
-								Iterator<?> iter = agent.keys();
 
-								while (iter.hasNext()) {
-									String key = (String) iter.next();
-									String value = agent.getString(key);
-									map.put(key, value);
-								} */
                         client.setName(object.getString("name"));
                         client.setFamily(object.getString("lat"));
                         client.setPhone(object.getString("lng"));
+                        client.setClientId(object.getString("id"));
                         mClientContractsArrayList.add(client);
-                        Log.d("NAME",mClientContractsArrayList.toString());
+                        Log.d("NAME", mClientContractsArrayList.toString());
 
                     }
 
